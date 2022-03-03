@@ -82,32 +82,39 @@ dogImage =
 
 
 text1 =
-    "Donut caramels chocolate cake powder biscuit. Jelly beans tootsie roll lollipop chocolate bar carrot cake tart gingerbread shortbread croissant. Chocolate shortbread bear claw ice cream sugar plum lemon drops tootsie roll donut gingerbread. Muffin tiramisu croissant brownie danish apple pie croissant powder marshmallow. Pudding chocolate cake sweet liquorice apple pie toffee. Candy canes soufflé liquorice gingerbread dragée caramels cake caramels marshmallow. Cheesecake apple pie cake pie chocolate. Chocolate bar gummi bears liquorice cake sugar plum. Jelly beans jujubes sesame snaps oat cake marshmallow bonbon toffee brownie."
+    "Chocolate bar shortbread shortbread muffin sugar plum biscuit danish. Cupcake tart powder gummi bears donut cake cotton candy. Marshmallow cotton candy sweet halvah lollipop jujubes. Oat cake macaroon chocolate bar gummies candy canes. Topping cupcake dragée biscuit dragée bonbon biscuit. Soufflé powder jelly-o shortbread toffee apple pie. Soufflé cupcake sesame snaps sweet apple pie chocolate biscuit powder dragée. Jelly cotton candy chocolate tart halvah halvah."
 
 
 text2 =
-    "Jelly biscuit ice cream apple pie pie. Chocolate croissant croissant marzipan sweet roll chocolate cake sesame snaps sweet roll liquorice. Lemon drops macaroon tootsie roll candy canes shortbread tootsie roll. Candy canes chocolate gummi bears cupcake soufflé. Carrot cake soufflé tiramisu chocolate bar cupcake cake. Ice cream gummi bears cheesecake biscuit bear claw tart sweet jujubes. Sesame snaps toffee candy muffin lemon drops bonbon chupa chups pie. Croissant marshmallow cheesecake jujubes cookie sweet chocolate chupa chups gummies. Marshmallow jelly gummies sweet chocolate."
+    "Sweet croissant pie liquorice pudding carrot cake. Chupa chups dessert pudding danish croissant cotton candy. Gummi bears toffee caramels chocolate oat cake donut soufflé. Lemon drops oat cake sugar plum cotton candy candy brownie pie pastry. Halvah jelly-o cookie gummies chocolate chocolate. Ice cream chocolate bar croissant chocolate sugar plum macaroon sesame snaps cake caramels."
 
 
 text3 =
-    "Chocolate cake oat cake lemon drops dragée lollipop tart. Bear claw oat cake cotton candy soufflé sugar plum toffee sweet roll muffin marzipan. Tiramisu carrot cake sugar plum candy bear claw wafer brownie ice cream jelly. Oat cake sweet biscuit cheesecake brownie. Sweet roll ice cream caramels cake topping sweet roll apple pie danish jelly-o. Jujubes chocolate cake jujubes topping danish sweet cotton candy. Candy ice cream biscuit toffee cheesecake. Candy dessert soufflé pie ice cream pie pudding muffin icing. Sweet roll chocolate bar ice cream sugar plum wafer. Wafer halvah oat cake marshmallow gummi bears gingerbread ice cream cheesecake sweet."
+    "Danish pie dragée chupa chups sweet jelly-o sweet roll biscuit bonbon. Cheesecake sesame snaps brownie pastry pastry. Jelly-o macaroon tootsie roll cupcake jelly beans candy lemon drops. Sugar plum croissant wafer icing gingerbread carrot cake marzipan. Bear claw sesame snaps cotton candy croissant toffee wafer jujubes jelly ice cream. Bear claw cupcake topping wafer pastry bonbon chocolate cake chocolate gingerbread. Gummi bears soufflé ice cream icing tart jelly beans cheesecake sweet. Chocolate brownie danish powder jelly."
 
+
+paddingTop size =
+    Element.paddingEach { top = size, right = 0, bottom = 0, left = 0 }
 
 viewContent =
     Element.column
-        [ Element.Font.color blue
-        , fontTypewriter
+        [ fontTypewriter
+        , Element.Font.size 16
+        , paddingTop 20
         ]
-        [ viewText text1
-        , viewText text2
-        , viewText text3
-        ]
-
-
-viewText contentText =
-    Element.paragraph
-        [ Element.padding 20
-        ]
-        [ Element.text
-            contentText
+        [ Element.paragraph
+            [ Element.paddingXY 0 20
+            ]
+            [ Element.text text1
+            ]
+        , Element.paragraph
+            [ Element.paddingXY 0 20
+            ]
+            [ Element.text text2
+            ]
+        , Element.paragraph
+            [ Element.paddingXY 0 20
+            ]
+            [ Element.text text3
+            ]
         ]

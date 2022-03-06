@@ -9,8 +9,6 @@ import Element.Input as EI
 import Html
 import Http exposing (Error(..))
 import Json.Decode as JD
-import Svg as S
-import Svg.Attributes as SA
 
 
 type alias Model =

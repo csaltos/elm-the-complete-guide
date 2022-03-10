@@ -1,12 +1,11 @@
 module Main exposing (..)
 
+import AboutPage
 import Browser
 import Browser.Navigation
 import Element
 import Element.Font
-import Html
 import Url
-import AboutPage
 import HomePage
 
 
@@ -57,18 +56,19 @@ view model =
 getTitle url =
     if String.startsWith "/about" url.path then
         "About"
+
     else
-        "Home"
+        "My Blog"
+
 
 viewContent model =
     Element.layout []
         (Element.column [ Element.padding 22 ]
-            [ Element.text model.title
-            , viewLink "https://www.duckduckgo.com" "DuckDuckGo"
-            , viewLink "https://www.ecosia.org" "Ecosia"
-            , viewLink "/about" "About"
+            [  viewLink "/about" "About"
             , viewLink "/" "Home"
             , viewPage model
+            , viewLink "https://www.duckduckgo.com" "DuckDuckGo"
+            , viewLink "https://www.ecosia.org" "Ecosia"
             ]
         )
 
@@ -85,6 +85,7 @@ viewLink url caption =
     Element.link
         [ Element.Font.color (Element.rgb255 0x11 0x55 0xFF)
         , Element.Font.underline
+        , Element.Font.size 12
         ]
         { url = url
         , label = Element.text caption

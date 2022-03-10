@@ -10642,7 +10642,7 @@ var $author$project$Main$update = F2(
 		}
 	});
 var $author$project$Main$getTitle = function (url) {
-	return A2($elm$core$String$startsWith, '/about', url.path) ? 'About' : 'Home';
+	return A2($elm$core$String$startsWith, '/about', url.path) ? 'About' : 'My Blog';
 };
 var $mdgriffith$elm_ui$Internal$Model$Unkeyed = function (a) {
 	return {$: 'Unkeyed', a: a};
@@ -16331,12 +16331,6 @@ var $mdgriffith$elm_ui$Element$padding = function (x) {
 			f,
 			f));
 };
-var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
-	return {$: 'Text', a: a};
-};
-var $mdgriffith$elm_ui$Element$text = function (content) {
-	return $mdgriffith$elm_ui$Internal$Model$Text(content);
-};
 var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
 	return A2(
 		$mdgriffith$elm_ui$Internal$Model$StyleClass,
@@ -16382,6 +16376,18 @@ var $mdgriffith$elm_ui$Element$rgb255 = F3(
 	function (red, green, blue) {
 		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, red / 255, green / 255, blue / 255, 1);
 	});
+var $mdgriffith$elm_ui$Element$Font$size = function (i) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$fontSize,
+		$mdgriffith$elm_ui$Internal$Model$FontSize(i));
+};
+var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
+	return {$: 'Text', a: a};
+};
+var $mdgriffith$elm_ui$Element$text = function (content) {
+	return $mdgriffith$elm_ui$Internal$Model$Text(content);
+};
 var $mdgriffith$elm_ui$Element$Font$underline = $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.underline);
 var $author$project$Main$viewLink = F2(
 	function (url, caption) {
@@ -16391,15 +16397,130 @@ var $author$project$Main$viewLink = F2(
 				[
 					$mdgriffith$elm_ui$Element$Font$color(
 					A3($mdgriffith$elm_ui$Element$rgb255, 17, 85, 255)),
-					$mdgriffith$elm_ui$Element$Font$underline
+					$mdgriffith$elm_ui$Element$Font$underline,
+					$mdgriffith$elm_ui$Element$Font$size(12)
 				]),
 			{
 				label: $mdgriffith$elm_ui$Element$text(caption),
 				url: url
 			});
 	});
-var $author$project$AboutPage$view = $mdgriffith$elm_ui$Element$text('About');
-var $author$project$HomePage$view = $mdgriffith$elm_ui$Element$text('Home page');
+var $mdgriffith$elm_ui$Element$paddingXY = F2(
+	function (x, y) {
+		if (_Utils_eq(x, y)) {
+			var f = x;
+			return A2(
+				$mdgriffith$elm_ui$Internal$Model$StyleClass,
+				$mdgriffith$elm_ui$Internal$Flag$padding,
+				A5(
+					$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+					'p-' + $elm$core$String$fromInt(x),
+					f,
+					f,
+					f,
+					f));
+		} else {
+			var yFloat = y;
+			var xFloat = x;
+			return A2(
+				$mdgriffith$elm_ui$Internal$Model$StyleClass,
+				$mdgriffith$elm_ui$Internal$Flag$padding,
+				A5(
+					$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+					'p-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y))),
+					yFloat,
+					xFloat,
+					yFloat,
+					xFloat));
+		}
+	});
+var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
+	return {$: 'Describe', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$Paragraph = {$: 'Paragraph'};
+var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
+	return {$: 'Fill', a: a};
+};
+var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
+var $mdgriffith$elm_ui$Internal$Model$SpacingStyle = F3(
+	function (a, b, c) {
+		return {$: 'SpacingStyle', a: a, b: b, c: c};
+	});
+var $mdgriffith$elm_ui$Internal$Flag$spacing = $mdgriffith$elm_ui$Internal$Flag$flag(3);
+var $mdgriffith$elm_ui$Internal$Model$spacingName = F2(
+	function (x, y) {
+		return 'spacing-' + ($elm$core$String$fromInt(x) + ('-' + $elm$core$String$fromInt(y)));
+	});
+var $mdgriffith$elm_ui$Element$spacing = function (x) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$spacing,
+		A3(
+			$mdgriffith$elm_ui$Internal$Model$SpacingStyle,
+			A2($mdgriffith$elm_ui$Internal$Model$spacingName, x, x),
+			x,
+			x));
+};
+var $mdgriffith$elm_ui$Element$paragraph = F2(
+	function (attrs, children) {
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asParagraph,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Internal$Model$Describe($mdgriffith$elm_ui$Internal$Model$Paragraph),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$spacing(5),
+						attrs))),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
+	});
+var $author$project$AboutPage$view = A2(
+	$mdgriffith$elm_ui$Element$column,
+	_List_fromArray(
+		[
+			$mdgriffith$elm_ui$Element$padding(20)
+		]),
+	_List_fromArray(
+		[
+			$mdgriffith$elm_ui$Element$text('About page'),
+			A2(
+			$mdgriffith$elm_ui$Element$paragraph,
+			_List_fromArray(
+				[
+					A2($mdgriffith$elm_ui$Element$paddingXY, 0, 20),
+					$mdgriffith$elm_ui$Element$Font$size(14)
+				]),
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$text('This is a web site for learning about navigation')
+				]))
+		]));
+var $author$project$HomePage$view = A2(
+	$mdgriffith$elm_ui$Element$column,
+	_List_fromArray(
+		[
+			$mdgriffith$elm_ui$Element$padding(20)
+		]),
+	_List_fromArray(
+		[
+			$mdgriffith$elm_ui$Element$text('My blog'),
+			A2(
+			$mdgriffith$elm_ui$Element$paragraph,
+			_List_fromArray(
+				[
+					A2($mdgriffith$elm_ui$Element$paddingXY, 0, 20),
+					$mdgriffith$elm_ui$Element$Font$size(14)
+				]),
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$text('Welcome to my mini blog made with Elm and Elm UI')
+				]))
+		]));
 var $author$project$Main$viewPage = function (model) {
 	return A2($elm$core$String$startsWith, '/about', model.url.path) ? $author$project$AboutPage$view : $author$project$HomePage$view;
 };
@@ -16415,12 +16536,11 @@ var $author$project$Main$viewContent = function (model) {
 				]),
 			_List_fromArray(
 				[
-					$mdgriffith$elm_ui$Element$text(model.title),
-					A2($author$project$Main$viewLink, 'https://www.duckduckgo.com', 'DuckDuckGo'),
-					A2($author$project$Main$viewLink, 'https://www.ecosia.org', 'Ecosia'),
 					A2($author$project$Main$viewLink, '/about', 'About'),
 					A2($author$project$Main$viewLink, '/', 'Home'),
-					$author$project$Main$viewPage(model)
+					$author$project$Main$viewPage(model),
+					A2($author$project$Main$viewLink, 'https://www.duckduckgo.com', 'DuckDuckGo'),
+					A2($author$project$Main$viewLink, 'https://www.ecosia.org', 'Ecosia')
 				])));
 };
 var $author$project$Main$view = function (model) {

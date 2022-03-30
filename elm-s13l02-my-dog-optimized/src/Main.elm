@@ -6,8 +6,8 @@ import Element.Background as EBG
 import Element.Border as EB
 import Element.Font as EF
 import Element.Input as EI
-import Html exposing (Html)
 import Element.Region as ER
+import Html exposing (Html)
 
 
 main : Program () Model Msg
@@ -114,7 +114,7 @@ viewTitle model =
         , EF.size 52
         , ER.heading 1
         ]
-        [ E.text "My Dog new"
+        [ E.text "My Dog version 2"
         ]
 
 
@@ -163,7 +163,7 @@ buttonChangeColors model =
 
 text1 : String
 text1 =
-    "Chocolate delicioso bar shortbread shortbread muffin sugar plum biscuit danish. Cupcake tart powder gummi bears donut cake cotton candy. Marshmallow cotton candy sweet halvah lollipop jujubes. Oat cake macaroon chocolate bar gummies candy canes. Topping cupcake dragée biscuit dragée bonbon biscuit. Soufflé powder jelly-o shortbread toffee apple pie. Soufflé cupcake sesame snaps sweet apple pie chocolate biscuit powder dragée. Jelly cotton candy chocolate tart halvah halvah."
+    "Chocolate this is version 2 bar shortbread shortbread muffin sugar plum biscuit danish. Cupcake tart powder gummi bears donut cake cotton candy. Marshmallow cotton candy sweet halvah lollipop jujubes. Oat cake macaroon chocolate bar gummies candy canes. Topping cupcake dragée biscuit dragée bonbon biscuit. Soufflé powder jelly-o shortbread toffee apple pie. Soufflé cupcake sesame snaps sweet apple pie chocolate biscuit powder dragée. Jelly cotton candy chocolate tart halvah halvah."
 
 
 text2 : String
